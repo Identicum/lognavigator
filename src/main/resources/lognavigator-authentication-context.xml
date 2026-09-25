@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+        xmlns="http://www.springframework.org/schema/security"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+    <authentication-manager>
+        <authentication-provider>
+            <password-encoder ref="bcrypt"/>
+            <user-service>
+                <!-- admin / admin -->
+                <user name="admin" password="$2y$10$4XrJdoh4HuJBxDnCJLhHY.Mbz4K/QuKAGriosk2MkE2S6xFW.auVu" authorities="role1"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="bcrypt" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+</beans:beans>
