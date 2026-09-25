@@ -3,7 +3,7 @@ name: docker-build
 on:
   push:
     branches:
-      - main
+      - master
     paths:
     - 'pom.xml'
     - 'src/**'
