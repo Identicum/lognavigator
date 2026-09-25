@@ -1,6 +1,6 @@
 package org.lognavigator.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class ErrorController {
 
 	@RequestMapping("/error/500")
 	public void errorTechnical(HttpServletRequest request) throws Throwable {
-		Throwable exception = (Throwable) request.getAttribute("javax.servlet.error.exception");
+		Throwable exception = (Throwable) request.getAttribute("jakarta.servlet.error.exception");
 		while (exception.getCause() != null) {
 			exception = exception.getCause();
 		}

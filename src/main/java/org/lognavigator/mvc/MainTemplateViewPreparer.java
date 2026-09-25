@@ -7,9 +7,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.tiles.AttributeContext;
-import org.apache.tiles.preparer.ViewPreparer;
-import org.apache.tiles.request.Request;
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.lognavigator.bean.LogAccessConfig;
 import org.lognavigator.exception.ConfigException;
 import org.lognavigator.service.AuthorizationService;
@@ -22,14 +21,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 /**
- * Tiles ViewPreparer launched just before view display, 
+ * View preparer launched just before main template display, 
  * which loads authorized log access configs for current user and bind it as a request attribute
- * so that main tiles template can use it in log-access-configs combobox
+ * so that main template can use it in log-access-configs combobox
  */
 @Component
-public class TilesTemplateViewPreparer implements ViewPreparer {
+public class MainTemplateViewPreparer {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(TilesTemplateViewPreparer.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MainTemplateViewPreparer.class);
 
 	@Autowired
 	private ConfigService configService;
@@ -38,8 +37,7 @@ public class TilesTemplateViewPreparer implements ViewPreparer {
 	private AuthorizationService authorizationService;
 
 	
-	@Override
-	public void execute(Request tilesContext, AttributeContext attributeContext) {
+	public void prepare(HttpServletRequest request) {
 		
 		try {
 			// Get authorized log access configs for current user 
@@ -60,7 +58,7 @@ public class TilesTemplateViewPreparer implements ViewPreparer {
 			}
 			
 			// Inject logAccessConfigIds map into request scope
-			tilesContext.getContext(Request.REQUEST_SCOPE).put(LOG_ACCESS_CONFIG_IDS_BY_DISPLAY_GROUP_KEY, logAccessConfigsMap);
+			request.setAttribute(LOG_ACCESS_CONFIG_IDS_BY_DISPLAY_GROUP_KEY, logAccessConfigsMap);
 		}
 		catch (ConfigException e) {
 			LOGGER.error("Error while loading configuration", e);

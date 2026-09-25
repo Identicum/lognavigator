@@ -1,7 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="false"%>
 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 
 <!DOCTYPE html>
 <html>
@@ -194,7 +193,7 @@
 		</c:if>
 	
 		<%-- BODY CONTENT --%>
-		<tiles:insertAttribute name="body" />
+		<jsp:include page="/WEB-INF/jsp/${viewName}.jsp" />
 
 	</section>
 	<%-- /RESULTS --%>
@@ -212,7 +211,6 @@
     <script type="text/javascript" src="<c:url value="/resources/webjars/jquery-placeholder/2.0.7/jquery.placeholder.min.js"/>"></script>
    	<script type="text/javascript" src="<c:url value="/resources/webjars/select2/3.5.4/select2.min.js"/>"></script>
    	<script type="text/javascript" src="<c:url value="/resources/${appVersion}/js/lognavigator-common.js"/>"></script>
-   	<tiles:importAttribute name="viewName"/>
    	<script type="text/javascript" src="<c:url value="/resources/${appVersion}/js/lognavigator-${viewName}.js"/>"></script>
 	<%-- /SCRIPTS --%>
 

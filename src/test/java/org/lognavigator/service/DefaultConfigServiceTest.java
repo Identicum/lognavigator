@@ -3,7 +3,7 @@ package org.lognavigator.service;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
 
 import org.junit.Before;
 import org.junit.Test;
