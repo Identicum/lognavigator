@@ -1,0 +1,21 @@
+name: war-release
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # push tag and create GitHub Release
+  packages: write   # deploy to GitHub Packages (Maven registry)
+
+jobs:
+  release:
+    uses: Identicum/github-actions/.github/workflows/java-war-release.yml@main
+    with:
+      java-version: '21'
+    secrets: inherit
