@@ -292,7 +292,6 @@
 	</distributionManagement>
 	
 	<build>
-        <finalName>lognavigator</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
