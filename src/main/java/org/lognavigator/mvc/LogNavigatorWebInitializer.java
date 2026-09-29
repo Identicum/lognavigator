@@ -25,7 +25,7 @@ public class LogNavigatorWebInitializer {
 	
 	@PostConstruct
 	public void initWebAppConfig() {
-		LOGGER.info("Starting LogNavigator version {}", appVersion);
+		LOGGER.info("Starting LogNavigator version {}.", appVersion);
 		servletContext.setAttribute(APP_VERSION_ATTRIBUTE_NAME, appVersion);
 	}
 }
