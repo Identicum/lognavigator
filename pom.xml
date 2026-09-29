@@ -293,6 +293,43 @@
 	
 	<build>
         <plugins>
+
+            <!-- Plugin which defines java version used for compilation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.15.0</version>
+                <configuration>
+                    <release>${java.version}</release>
+                    <!-- Required by Spring 6.1+ to resolve @PathVariable/@RequestParam names -->
+                    <parameters>true</parameters>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin which exposes dependency jar paths as properties (used to load mockito agent) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>properties</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Plugin which runs unit tests (mockito agent is loaded explicitly, as JDK 21+ restricts dynamic agent loading) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.6</version>
+                <configuration>
+                    <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.5.0</version>
