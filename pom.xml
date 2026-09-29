@@ -3,7 +3,7 @@
 
 	<groupId>org.lognavigator</groupId>
 	<artifactId>lognavigator</artifactId>
-	<version>1.8.1-SNAPSHOT</version>
+	<version>1.8.1</version>
 	<packaging>war</packaging>
 
 	<name>LogNavigator</name>
@@ -31,7 +31,7 @@
 		<connection>scm:git:https://github.com/identicum/lognavigator.git</connection>
 		<developerConnection>scm:git:https://github.com/identicum/lognavigator.git</developerConnection>
 		<url>https://github.com/identicum/lognavigator</url>
-		<tag>HEAD</tag>
+		<tag>lognavigator-1.8.1</tag>
 	</scm>
 
 	<issueManagement>
