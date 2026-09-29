@@ -2,7 +2,7 @@ FROM ghcr.io/identicum/alpine-jre21-tomcat11:latest
 
 LABEL org.opencontainers.image.source=https://github.com/Identicum/lognavigator
 
-ENV LOGNAVIGATOR_VERSION=1.8.5
+ENV LOGNAVIGATOR_VERSION=1.8.6
 
 ADD https://github.com/Identicum/lognavigator/releases/download/v${LOGNAVIGATOR_VERSION}/lognavigator-${LOGNAVIGATOR_VERSION}.war /tmp/lognavigator.war
 
