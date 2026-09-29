@@ -1,0 +1,14 @@
+name: lognavigator
+
+services:
+  lognavigator:
+    container_name: lognavigator
+    image: ghcr.io/identicum/lognavigator:latest
+    pull_policy: always
+    restart: always
+    ports:
+     - 8088:8080
+    volumes:
+      - ./logs/:/logs/
+      # - ./WEB-INF/classes/lognavigator.xml:/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/lognavigator.xml
+      # - ./WEB-INF/classes/lognavigator-authentication-context.xml:/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/lognavigator-authentication-context.xml
