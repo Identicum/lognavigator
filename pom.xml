@@ -28,15 +28,15 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/fbaligand/lognavigator.git</connection>
-		<developerConnection>scm:git:https://github.com/fbaligand/lognavigator.git</developerConnection>
-		<url>https://github.com/fbaligand/lognavigator</url>
+		<connection>scm:git:https://github.com/identicum/lognavigator.git</connection>
+		<developerConnection>scm:git:https://github.com/identicum/lognavigator.git</developerConnection>
+		<url>https://github.com/identicum/lognavigator</url>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/fbaligand/lognavigator/issues</url>
+		<url>https://github.com/identicum/lognavigator/issues</url>
 	</issueManagement>
 
 	<properties>
